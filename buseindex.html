@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Examples</title>
+<style>
+   #teachers {font-size: 30px;}
+
+   .teachername{
+       color: red;
+       font-size: 20px;
+       background-color: whitesmoke;
+       font-family: monospace;
+   }
+</style>
+
+</head>
+<body>
+    <div id="teachers">
+        Teachers
+        <ol id="ekledik">
+            <li class="teachername">Buse</li>
+            <li class="teachername">Sude</li>
+        </ol>
+       name:<input type="text" id="newinput"/>
+        <button id="eklemek">
+            add teacher
+        </button>
+    </div>
+
+    <script class="teachername">
+        //Javascript can be added via <script> into body
+            let addTeacherBtn = document.getElementById("eklemek");
+            addTeacherBtn.addEventListener("click", function(){ 
+                alert("you have been added to the list")
+                });
+            addTeacherBtn.addEventListener("click", function() {
+                //read the input box 
+                const teacherNameInput = document.getElementById("newinput");
+                const name = teacherNameInput.value;
+                // add it to the list as creating a new <li> in <ol> 
+                let newListElement = document.createElement('LI');
+                const teacherNameNode = document.createTextNode(name);
+                newListElement.appendChild(teacherNameNode);
+                const teacherListElement = document.getElementById("ekledik");
+                teacherListElement.appendChild(newListElement); 
+                //newListElement class="teachername"; 
+
+            })
+    </script>
+</body>
+</html>
